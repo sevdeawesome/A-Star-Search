@@ -1,18 +1,18 @@
 #include <iostream>
+#include <vector>
+#include "node.h"
+#include "puzzle.h"
+
+
 
 using namespace std;
 
 int main(){
-    cout << "hello world";
-
     //MAIN LOOP
-    bool more_nodes = true;
 
-    while (more_nodes == true)
-    {
-        cout << "Hello";
-        more_nodes = false;
-    }
+    node a = node();
+    a.print_node();
+  
     
 
 
