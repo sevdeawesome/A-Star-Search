@@ -18,14 +18,23 @@ int main(){
 
     // cout << a.compare_nodes(b);
     
-    cout << endl << sizeof(a.data[0]) /sizeof(a.data[0][0]);
+    // cout << endl << sizeof(a.data[0]) /sizeof(a.data[0][0]);
     // cout  << endl  << a.data[0].length();
 
-    vector<int> f{1,3,4,5,6,7,5,2,1};
+    vector<int> f{0,3,4,5,1,7,1,3,2};
 
     node c = node(f);
 
     c.print_node();
+
+    c.create_childD();
+    cout << endl << "DOWN CHILD" << endl;
+    c.print_node();
+
+
+    // c1.create_childU();
+    // cout << endl;
+    // c1.print_node();
 
     // void general_search(problem, QUEUEING-FUNCTION){
     //     nodes = MAKE-QUEUE(MAKE-NODE(problem.INITIAL-STATE))

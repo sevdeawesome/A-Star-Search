@@ -8,7 +8,8 @@ class node {
 private:
   
   node* parent;
-  
+  int depth;   //depth of the node
+  int h; //heuristic value
 
 public:
 
@@ -37,6 +38,7 @@ public:
     }
   }
 
+
 // print node (for testing)
   void print_node(){
     for(int i = 0; i < 3; i++){
@@ -61,18 +63,75 @@ public:
     return same;
   };
 
+  // returns the x coordinate of the blank tile
+  int findY(){
+    for(int i = 0; i < 3; i++){
+      for(int j = 0; j < 3; j++){
+        if(data[i][j] == 0){
+          return i;
+        }
+      }
+    }
 
-  node create_childL();
-  node create_childR();
-  node create_childU();
-  node create_childD();
-  
-
-
-  void shuffle(){
-    // for(int i = 0; i < sizeof(data[0]);i++)
-    
+    return 0;
   }
+
+  // returns the y coordinate of the blank tile
+  int findX(){
+    for(int i = 0; i < 3; i++){
+      for(int j = 0; j < 3; j++){
+        if(data[i][j] == 0){
+          return j;
+        }
+      }
+    }
+    return 0;
+  }
+
+
+
+// OPERATORS - move blank LRDU
+  bool can_createL();
+
+  void create_childL(){
+
+    int x = findX();
+    int y = findY();
+    if(x > 0){
+      int temp = data[y][x-1];
+      data[y][x-1] = data[y][x];
+      data[y][x] = temp;
+    }
+  };
+
+  void create_childR(){
+    int x = findX();
+    int y = findY();
+    if(x < 2){
+      int temp = data[y][x+1];
+      data[y][x+1] = data[y][x];
+      data[y][x] = temp;
+    }
+  };
+  void create_childD(){
+    int x = findX();
+    int y = findY();
+    if(y < 2){
+      int temp = data[y+1][x];
+      data[y+1][x] = data[y][x];
+      data[y][x] = temp;
+    }
+  }
+  void create_childU(){
+    int x = findX();
+    int y = findY();
+    if(x > 0){
+      int temp = data[y-1][x];
+      data[y-1][x] = data[y][x];
+      data[y][x] = temp;
+    }
+  }
+  
 };
 
 
