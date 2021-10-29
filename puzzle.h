@@ -9,7 +9,7 @@ using namespace std;
 
 class puzzle {
 private:
-  queue<node> nodes;  //queue of nodes to visit
+  // queue<node> nodes;  //queue of nodes to visit
   vector<node> visited;   // already visited nodes (vector)
   node goal = node();    //goal state (default constructor gives  0 1 2 3 4 5 6 7 8)
 
@@ -52,8 +52,25 @@ public:
     return children;
   }
 
+    // void general_search(problem, QUEUEING-FUNCTION){
 
-  void general_search();  //this is the search method that will run loop as pseudocode example
+    //     nodes = puzzle.MAKE-QUEUE(node())
+    //     node NODE = node();
+    //     if(nodes.empty() == true){
+    //         return "fail";
+    //     }
+    //     while(nodes.empty() == false ){
+    //         NODE = nodes.pop();
+    //         if(problem.GOAL-TEST(node.STATE)){
+    //             return NODE;
+    //             break;
+    //         }
+    //         nodes = QUEUEING-FUNCTION(nodes, node.EXPAND());
+    //     }
+    // }
+  void general_search(){
+
+  };  //this is the search method that will run loop as pseudocode example
 
 
 };
