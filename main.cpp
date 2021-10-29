@@ -31,9 +31,16 @@ int main(){
 
     // cout << vec.size();
 
-    
-
-
+        
+    vector<int> v{ 1, 2, 3, 4, 5 };
+    for(int i = 0; i < v.size(); i++){
+        cout << v.at(i) << endl;
+    }
+    cout << endl << endl;
+    v.insert(v.begin(), 6);
+    for(int i = 0; i < v.size(); i++){
+            cout << v.at(i) << endl;
+        }
 
 
     // void general_search(problem, QUEUEING-FUNCTION){
