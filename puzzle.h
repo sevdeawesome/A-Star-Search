@@ -63,34 +63,52 @@ public:
     return children;
   }
 
-    // void general_search(problem, QUEUEING-FUNCTION){
+  // void general_search(problem, QUEUEING-FUNCTION){
+  node * general_search(node input){
+  
+    //nodes = MAKE-QUEUE(MAKE-NODE(problem.INITIAL-STATE))
+      queue.push_back(input);
 
-    //     nodes = puzzle.MAKE-QUEUE(node())
-    //     node NODE = node();
-    //     if(nodes.empty() == true){
-    //         return "fail";
-    //     }
-    //     while(nodes.empty() == false ){
-    //         NODE = nodes.pop();
-    //         if(problem.GOAL-TEST(node.STATE)){
-    //             return NODE;
-    //             break;
-    //         }
-    //         nodes = QUEUEING-FUNCTION(nodes, node.EXPAND());
-    //     }
-    // }
-  void general_search(){
+      //     loop do 
+      while(queue.size() > 0){
 
-  };  //this is the search method that will run loop as pseudocode example
+        // node = REMOVE-FRONT(nodes)  
+        node * curnode = &queue.at(queue.size() - 1);
+        queue.pop_back();
+
+        //  if problem.GOAL-TEST(node.STATE) succeeds then return node
+        if(curnode->compare_nodes(goal)){
+          return curnode;
+        }
+
+        //nodes = QUEUEING-FUNCTION(nodes, EXPAND(node, problem.OPERATORS))
+        queueing_function(*curnode);
+        delete curnode; 
+      }
+      
+    //if EMPTY(nodes) then return "failure"
+    return nullptr;
+  };  
 
 
 
-  //pass in new nodes, pass in heuristic assign them heuristic and add them to queue in order 
-
+  //pass in node, add children to the queue in order, pass in heuristic assign them heuristic and add them to queue in order 
   // 1 = UCS, 2 = MANHATTAN DISTANCE, 3 = MISPLACED TILES
-  void queueing_function(vector<node> new_nodes){
+  void queueing_function(node input){
+
+    // h = 1 and put everything in front
     if(heuristic == 1){
       
+    }
+
+    //manhattan distance
+    else if(heuristic == 2){
+
+    }
+
+    //misplaced tile heuristic
+    else{
+
     }
   }
 

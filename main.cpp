@@ -39,8 +39,8 @@ int main(){
     cout << endl << endl;
     v.insert(v.begin(), 6);
     for(int i = 0; i < v.size(); i++){
-            cout << v.at(i) << endl;
-        }
+        cout << v.at(i) << endl;
+    }
 
 
     // void general_search(problem, QUEUEING-FUNCTION){
