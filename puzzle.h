@@ -9,16 +9,27 @@ using namespace std;
 
 class puzzle {
 private:
-  // queue<node> nodes;  //queue of nodes to visit
+ 
+ //queue of nodes to visit (last one is next in line), ordered in rank of heuristic
+  vector<node> queue;
   vector<node> visited;   // already visited nodes (vector)
   node goal = node();    //goal state (default constructor gives  0 1 2 3 4 5 6 7 8)
 
+  int heuristic = 1;
+
 public:
   puzzle();
-  void queue_children();
   void set_goalState();  //set the goal state
-  void add_nodes();   //set the starting state (for testing)
-  void add_visited();
+  void add_nodes(node input){
+    queue.push_back(input);
+  };   //set the starting state (for testing)
+  void add_visited(node input){
+    visited.push_back(input);
+  };
+
+  void set_heuristic(int h){
+    heuristic = h;
+  }
 
 
   //returns a vector of nodes (children of the input node)
@@ -71,6 +82,17 @@ public:
   void general_search(){
 
   };  //this is the search method that will run loop as pseudocode example
+
+
+
+  //pass in new nodes, pass in heuristic assign them heuristic and add them to queue in order 
+
+  // 1 = UCS, 2 = MANHATTAN DISTANCE, 3 = MISPLACED TILES
+  void queueing_function(vector<node> new_nodes){
+    if(heuristic == 1){
+      
+    }
+  }
 
 
 };
