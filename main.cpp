@@ -11,7 +11,7 @@ int main(){
 
    
 
-    vector<int> f{1,3,6,5,0,7,4,8,2};
+    vector<int> f{1,3,6,5,0,7,4,2,8};
     node b = node(f);
     b.print_node();
     puzzle a = puzzle();
