@@ -17,9 +17,45 @@ public:
   puzzle();
   void queue_children();
   void set_goalState();  //set the goal state
-  void set_initialState();   //set the starting state (for testing)
+  void add_nodes();   //set the starting state (for testing)
+  void add_visited();
+
+
+  //returns a vector of nodes (children of the input node)
+  vector<node> create_children(node input){
+    vector<node> children;
+    node a = input; 
+    a.set_parent(&input);
+    a.increment_depth();
+
+    if(input.can_createD()){
+      node b = a;
+      b.create_childD();
+      children.push_back(b);
+
+    }
+    if(input.can_createU()){
+      node b = a;
+      b.create_childU();
+      children.push_back(b);
+    }
+    if(input.can_createR()){
+      node b = a;
+      b.create_childR();
+      children.push_back(b);
+    }
+    if(input.can_createL()){
+      node b = a;
+      b.create_childL();
+      children.push_back(b);
+    }
+    return children;
+  }
+
 
   void general_search();  //this is the search method that will run loop as pseudocode example
+
+
 };
 
 

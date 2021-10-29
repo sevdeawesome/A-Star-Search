@@ -9,20 +9,29 @@ using namespace std;
 
 int main(){
 
-    node b = node();
-
    
 
     vector<int> f{2,3,4,5,1,7,1,3,0};
+    node b = node(f);
+    b.print_node();
+    // node c = b;
+    // c.create_childL();
+    // c.set_parent(&b);
+    // c.print_node();
 
-    cout << f.size();
+    // cout << c.depth;
 
-    for (auto i = f.begin(); i != f.end(); ++i)
-        cout << *i << " ";
-  
+    // c.get_parent()->print_node();
 
-    cout << f.size();
+    vector<node> vec;
 
+    for(int i = 0; i < 90000000; i++){
+        vec.push_back(b);
+    }
+
+    cout << vec.size();
+
+    
 
 
 

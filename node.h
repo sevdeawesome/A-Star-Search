@@ -7,17 +7,18 @@ using namespace std;
 class node {
 private:
   
+  
+
+public:
   node* parent;
   int depth;   //depth of the node
   int h; //heuristic value
-
-public:
-
   // 3x3 array for numbers -> 0 is blank
   int data[3][3]; 
 
   // default constructor
   node(){
+    depth = 0;
     int x = 0;
     for(int i = 0; i< 3; i++){
       for(int j = 0; j< 3; j++){
@@ -29,6 +30,7 @@ public:
 
 // constructor w/ 9 inputs as vector
   node(vector<int> input){
+    depth = 0;
     int x = 0;
     for(int i = 0; i< 3; i++){
       for(int j = 0; j< 3; j++){
@@ -37,6 +39,19 @@ public:
       }
     }
   }
+
+void set_parent(node* p){
+  parent = p;
+}
+node* get_parent(){
+  return parent;
+}
+void set_h(int val){
+  h = val;
+}
+void increment_depth(){
+  depth++;
+}
 
 
 // print node (for testing)
@@ -47,6 +62,9 @@ public:
       }
       cout<< endl;
     }
+
+    cout<< endl;
+    cout<< endl;
   };
 
   
@@ -120,7 +138,7 @@ public:
   }
 
   void create_childL(){
-
+    depth++;
     int x = findX();
     int y = findY();
     if(x > 0){
@@ -131,6 +149,7 @@ public:
   };
 
   void create_childR(){
+    depth++;
     int x = findX();
     int y = findY();
     if(x < 2){
@@ -140,6 +159,7 @@ public:
     }
   };
   void create_childD(){
+    depth++;
     int x = findX();
     int y = findY();
     if(y < 2){
@@ -149,6 +169,7 @@ public:
     }
   }
   void create_childU(){
+    depth++;
     int x = findX();
     int y = findY();
     if(y > 0){
@@ -157,6 +178,17 @@ public:
       data[y][x] = temp;
     }
   }
+  
+  vector<int> data_toVector(){
+    vector<int> vec;
+    for(int i = 0; i< 3; i++){
+      for(int j = 0; j< 3; j++){
+        vec.push_back(data[i][j]);
+      }
+    }
+    return vec;
+  }
+
   
 };
 
