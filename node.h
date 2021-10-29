@@ -6,9 +6,6 @@ using namespace std;
 
 class node {
 private:
-  
-  
-
 public:
   node* parent;
   int depth;   //depth of the node
@@ -106,8 +103,6 @@ void increment_depth(){
     return 0;
   }
 
-
-
 // OPERATORS - move blank LRDU
   bool can_createL(){
     if(findX() > 0){
@@ -115,8 +110,6 @@ void increment_depth(){
     }
     return false;
   }
-
-
   bool can_createR(){
     if(findX() < 2){
       return true;
@@ -188,10 +181,5 @@ void increment_depth(){
     }
     return vec;
   }
-
-  
 };
-
-
-
 #endif
