@@ -15,10 +15,12 @@ private:
   vector<node> visited;   // already visited nodes (vector)
   node goal = node();    //goal state (default constructor gives  0 1 2 3 4 5 6 7 8)
 
-  int heuristic = 1;
+  int heuristic;
 
 public:
-  puzzle();
+  puzzle(){
+    heuristic = 1;
+  }
   void set_goalState();  //set the goal state
   void add_nodes(node input){
     queue.push_back(input);
@@ -71,22 +73,27 @@ public:
 
       //     loop do 
       while(queue.size() > 0){
-
         // node = REMOVE-FRONT(nodes)  
         node * curnode = &queue.at(queue.size() - 1);
         queue.pop_back();
 
+        cout << curnode->depth;
+
         //  if problem.GOAL-TEST(node.STATE) succeeds then return node
         if(curnode->compare_nodes(goal)){
+          cout << endl;
+          cout << "ANSWER HAS BEEN FOUND at depth " << curnode->depth <<  endl;
           return curnode;
         }
 
         //nodes = QUEUEING-FUNCTION(nodes, EXPAND(node, problem.OPERATORS))
         queueing_function(*curnode);
-        delete curnode; 
+        // cout << endl << queue.size();
+        // delete curnode; 
       }
       
     //if EMPTY(nodes) then return "failure"
+    cout << "FAILURE";
     return nullptr;
   };  
 
@@ -95,9 +102,15 @@ public:
   //pass in node, add children to the queue in order, pass in heuristic assign them heuristic and add them to queue in order 
   // 1 = UCS, 2 = MANHATTAN DISTANCE, 3 = MISPLACED TILES
   void queueing_function(node input){
+    
+    vector<node> children = create_children(input);
 
     // h = 1 and put everything in front
     if(heuristic == 1){
+      for(int i = 0; i < children.size(); i++){
+        queue.insert(queue.begin(), children.at(i));
+        // cout << children.at(i).depth << endl;
+      }
       
     }
 

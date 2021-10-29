@@ -16,13 +16,14 @@ public:
   // default constructor
   node(){
     depth = 0;
-    int x = 0;
+    int x = 1;
     for(int i = 0; i< 3; i++){
       for(int j = 0; j< 3; j++){
         data[i][j] = x;
         x++;
       }
     }
+    data[2][2] = 0;
   };
 
 // constructor w/ 9 inputs as vector
@@ -68,8 +69,8 @@ void increment_depth(){
 // returns if node is equal to input node
   bool compare_nodes(node a){
     bool same = true;
-    for(int i = 3; i < 3; i++){
-      for(int j = 3; j < 3; j++){
+    for(int i = 0; i < 3; i++){
+      for(int j = 0; j < 3; j++){
         if(a.data[i][j] != data[i][j]){
           same = false;
         }
@@ -131,7 +132,6 @@ void increment_depth(){
   }
 
   void create_childL(){
-    depth++;
     int x = findX();
     int y = findY();
     if(x > 0){
@@ -142,7 +142,6 @@ void increment_depth(){
   };
 
   void create_childR(){
-    depth++;
     int x = findX();
     int y = findY();
     if(x < 2){
@@ -152,7 +151,6 @@ void increment_depth(){
     }
   };
   void create_childD(){
-    depth++;
     int x = findX();
     int y = findY();
     if(y < 2){
@@ -162,7 +160,7 @@ void increment_depth(){
     }
   }
   void create_childU(){
-    depth++;
+
     int x = findX();
     int y = findY();
     if(y > 0){

@@ -11,65 +11,35 @@ int main(){
 
    
 
-    vector<int> f{2,3,4,5,1,7,1,3,0};
+    vector<int> f{1,3,6,5,0,7,4,8,2};
     node b = node(f);
     b.print_node();
-    // node c = b;
-    // c.create_childL();
-    // c.set_parent(&b);
+    puzzle a = puzzle();
+
+    node * answer = a.general_search(b);
+
+   
+    cout << "ANSWER PRINT NODE:" << endl;
+    answer->print_node();
+
+    // cout << "ANSWER PARENT " << endl;
+    // answer->get_parent()->print_node();
+    
+    // while(answer->get_parent() != nullptr)
+    // {
+    //     answer->print_node();
+    //     cout << "GOT EHERE";
+    //     answer = answer->get_parent();
+    // }
+    
+
+    // vector<int> h{2,3,4,5,1,7,5,4,0};
+    // node c= node(h);
     // c.print_node();
 
-    // cout << c.depth;
+    // cout << endl << endl;
 
-    // c.get_parent()->print_node();
-
-    // vector<node> vec;
-
-    // for(int i = 0; i < 90000000; i++){
-    //     vec.push_back(b);
-    // }
-
-    // cout << vec.size();
-
-        
-    vector<int> v{ 1, 2, 3, 4, 5 };
-    for(int i = 0; i < v.size(); i++){
-        cout << v.at(i) << endl;
-    }
-    cout << endl << endl;
-    v.insert(v.begin(), 6);
-    for(int i = 0; i < v.size(); i++){
-        cout << v.at(i) << endl;
-    }
-
-
-    // void general_search(problem, QUEUEING-FUNCTION){
-    //     nodes = MAKE-QUEUE(MAKE-NODE(problem.INITIAL-STATE))
-    //     loop do
-    //     if EMPTY(nodes) then return
-    //         "failure"
-    //         node = REMOVE-FRONT(nodes)
-    //     if
-    //         problem.GOAL-TEST(node.STATE) succeeds then return node
-    //         nodes = QUEUEING-FUNCTION(nodes, EXPAND(node, problem.OPERATORS))
-    // }
-
-    // void general_search(problem, QUEUEING-FUNCTION){
-
-    //     nodes = puzzle.MAKE-QUEUE(node())
-    //     node NODE = node();
-    //     if(nodes.empty() == true){
-    //         return "fail";
-    //     }
-    //     while(nodes.empty() == false ){
-    //         NODE = nodes.pop();
-    //         if(problem.GOAL-TEST(node.STATE)){
-    //             return NODE;
-    //             break;
-    //         }
-    //         nodes = QUEUEING-FUNCTION(nodes, node.EXPAND());
-    //     }
-    // }
+    // cout << c.compare_nodes(b);
 
 
     return 0;
