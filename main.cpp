@@ -23,13 +23,13 @@ int main(){
 
     // c.get_parent()->print_node();
 
-    vector<node> vec;
+    // vector<node> vec;
 
-    for(int i = 0; i < 90000000; i++){
-        vec.push_back(b);
-    }
+    // for(int i = 0; i < 90000000; i++){
+    //     vec.push_back(b);
+    // }
 
-    cout << vec.size();
+    // cout << vec.size();
 
     
 
