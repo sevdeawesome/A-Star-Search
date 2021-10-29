@@ -8,33 +8,24 @@
 using namespace std;
 
 int main(){
-    //MAIN LOOP
-
-    node a = node();
-    // a.print_node();
-  
 
     node b = node();
 
-    // cout << a.compare_nodes(b);
-    
-    // cout << endl << sizeof(a.data[0]) /sizeof(a.data[0][0]);
-    // cout  << endl  << a.data[0].length();
+   
 
-    vector<int> f{0,3,4,5,1,7,1,3,2};
+    vector<int> f{2,3,4,5,1,7,1,3,0};
 
-    node c = node(f);
+    cout << f.size();
 
-    c.print_node();
+    for (auto i = f.begin(); i != f.end(); ++i)
+        cout << *i << " ";
+  
 
-    c.create_childD();
-    cout << endl << "DOWN CHILD" << endl;
-    c.print_node();
+    cout << f.size();
 
 
-    // c1.create_childU();
-    // cout << endl;
-    // c1.print_node();
+
+
 
     // void general_search(problem, QUEUEING-FUNCTION){
     //     nodes = MAKE-QUEUE(MAKE-NODE(problem.INITIAL-STATE))

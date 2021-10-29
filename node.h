@@ -91,7 +91,33 @@ public:
 
 
 // OPERATORS - move blank LRDU
-  bool can_createL();
+  bool can_createL(){
+    if(findX() > 0){
+      return true;
+    }
+    return false;
+  }
+
+
+  bool can_createR(){
+    if(findX() < 2){
+      return true;
+    }
+    return false;
+  }
+
+  bool can_createU(){
+    if(findY() > 0){
+      return true;
+    }
+    return false;
+  }
+  bool can_createD(){
+    if(findY() < 2){
+      return true;
+    }
+    return false;
+  }
 
   void create_childL(){
 
@@ -125,7 +151,7 @@ public:
   void create_childU(){
     int x = findX();
     int y = findY();
-    if(x > 0){
+    if(y > 0){
       int temp = data[y-1][x];
       data[y-1][x] = data[y][x];
       data[y][x] = temp;
