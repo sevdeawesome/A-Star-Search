@@ -50,7 +50,12 @@ void set_h(int val){
 void increment_depth(){
   depth++;
 }
-
+void set_depth(int a){
+  depth = a;
+}
+int get_depth(){
+  return depth;
+}
 
 // print node (for testing)
   void print_node(){

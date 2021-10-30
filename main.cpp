@@ -11,16 +11,37 @@ int main(){
 
    
 
-    vector<int> f{1,3,6,5,0,7,4,2,8};
-    node b = node(f);
-    b.print_node();
+    vector<int> f{1,3,6,5,0,2,4,7,8};
+    node*  b = new node(f);
+    
+
+    // node * c = new node();
+
+
+    // node * d = new node();
+
+
+    // b.set_parent(c);
+    // c->set_parent(d);
+    // d->set_parent(&b);
+
+
+    // d->get_parent()->print_node();
     puzzle a = puzzle();
 
     node * answer = a.general_search(b);
 
    
     cout << "ANSWER PRINT NODE:" << endl;
+
     answer->print_node();
+
+    cout << endl;
+
+    answer->get_parent()->get_parent()->get_parent()->print_node();
+
+    // node * parent = answer->get_parent()->get_parent();
+    // (*parent).print_node();
 
     // cout << "ANSWER PARENT " << endl;
     // answer->get_parent()->print_node();
