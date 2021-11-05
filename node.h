@@ -47,6 +47,9 @@ node* get_parent(){
 void set_h(int val){
   h = val;
 }
+int get_h(){
+  return h;
+}
 void increment_depth(){
   depth++;
 }
@@ -56,6 +59,7 @@ void set_depth(int a){
 int get_depth(){
   return depth;
 }
+
 
 // print node (for testing)
   void print_node(){
@@ -84,6 +88,29 @@ int get_depth(){
     return same;
   };
 
+
+  int findX(int x){
+      for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+          if(data[i][j] == x){
+            return j;
+          }
+        }
+      }
+      return 0;
+  }
+
+  int findY(int y){
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+          if(data[i][j] == y){
+            return i;
+          }
+        }
+      }
+
+      return 0;
+  }
   // returns the x coordinate of the blank tile
   int findY(){
     for(int i = 0; i < 3; i++){
