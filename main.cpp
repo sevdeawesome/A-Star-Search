@@ -110,7 +110,6 @@ int main(){
     
     int puzzletype;
     cin >> puzzletype;
-    cout << puzzletype;
     cout << endl;
 
     vector<int> input{1,2,3,4,5,6,0,7,8};
@@ -153,7 +152,12 @@ int main(){
 
     while(answer->get_parent() != nullptr){
             answer->print_node();
+            cout << "g(n) = " << answer->get_depth() << endl;
+            cout << "h(n) = " << answer->get_h() << endl;
             answer = answer->get_parent();
+            cout << endl;
+            
+
         }
     return 0;
 }

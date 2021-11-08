@@ -54,7 +54,7 @@ public:
         if(curnode->compare_nodes(goal)){
           cout << "HEURISTIC: " << heuristic;
           cout << endl;
-          cout << "ANSWER HAS BEEN FOUND AT DEPTH: " << curnode->depth <<endl <<   "NODES TRAVERSED :" << nodes_traversed << endl << " MAX QUEUE SIZE: " << max_queue_size << endl;
+          cout << "ANSWER HAS BEEN FOUND AT DEPTH: " << curnode->depth <<endl <<   "NODES CHECKED :" << nodes_traversed << endl << "MAX QUEUE SIZE: " << max_queue_size << endl;
           return curnode;
         }
 
