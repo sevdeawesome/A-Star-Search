@@ -38,7 +38,7 @@ The 3 and the 8 are the only tiles out of place, so the heuristic value (h(n)) i
 Here is my code for computing the misplaced heuristic of a state given the goal state. 
 ![pic](pics/misplaced.png)
 
-# #Comparison
+# Comparison
 I measured a couple of different ways to compare the three heuristics: nodes viewed and maximum queue size. I also measured the runtime with the c++ ctime library. I also noticed that when I used the greedy algorithm (f(n) = h(n) instead of f(n) = h(n) + g(n)) I got lower runtimes at the cost of losing optimality. I also tried each heuristic with/without checking for repeated states. Without checking for repeated states in the manhattan and misplaced tile heuristics, the search loop would get caught between two states for most problems inputted past a depth of 8 or so. Without checking for repeated states, the UCS heuristic still performed similarly, just had a larger number of nodes visited (expectedly). I didn’t measure data for the greedy algorithms or data on the heuristics without checking for repeated states because it seemed futile and unnecessary, but thought I’d note that I tried both of these (at first unintentionally) and they changed the complexity in expected ways. 
 
 ![pic](pics/graph1.png)
