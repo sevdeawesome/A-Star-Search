@@ -42,12 +42,15 @@ Here is my code for computing the misplaced heuristic of a state given the goal 
 I measured a couple of different ways to compare the three heuristics: nodes viewed and maximum queue size. I also measured the runtime with the c++ ctime library. I also noticed that when I used the greedy algorithm (f(n) = h(n) instead of f(n) = h(n) + g(n)) I got lower runtimes at the cost of losing optimality. I also tried each heuristic with/without checking for repeated states. Without checking for repeated states in the manhattan and misplaced tile heuristics, the search loop would get caught between two states for most problems inputted past a depth of 8 or so. Without checking for repeated states, the UCS heuristic still performed similarly, just had a larger number of nodes visited (expectedly). I didn’t measure data for the greedy algorithms or data on the heuristics without checking for repeated states because it seemed futile and unnecessary, but thought I’d note that I tried both of these (at first unintentionally) and they changed the complexity in expected ways. 
 
 ![pic](pics/graph1.png)
+
 Figure 1. Maximum Queue Size vs. Depth of Solution. As we can see, the heuristics can massively improve the space complexity of A*. This is less relevant in problems with shallow search spaces, however, as the search space becomes larger, the difference between space demands of heuristics grows. 
 
 ![pic](pics/graph2.png)
+
 Figure 2. Nodes Viewed vs. Depth of Solution. This is a good approximation of runtime complexity. Once again the heuristics outperform a breadth first search and become more important in deeper problems. 
 
 ![pic](pics/graph3.png)
+
 Figure 3. Nodes Viewed vs. Depth of Solution in log scale. In log scale, we can see that the misplaced tile begins by being outperformed by the Manhattan distance heuristic, but once the search space reaches ~10 nodes, the misplaced tile heuristic is better.
 
 
@@ -58,5 +61,3 @@ Here is an example code traceback: https://pastebin.com/KTuSBms9
 
 # Conclusion
 In this project, I coded the problem space for the 8 puzzle and explored 3 different heuristics in an A* search to assess their problem solving capability and learn the importance of heuristics. In more complex problems, heuristics can become more complex, but since A* is optimal and complete, the only way to improve speed without compromising optimality or completeness is to improve your heuristics. 
-
-By comparing the runtime and space complexity of the three different heuristics, we can see that for shallow search problems, optimal heuristics aren’t necessary. However, as problems become more complex and search spaces become deeper, advanced heuristics are necessary to save time and space. 
